@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class App {
+public class HangoutApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -9,7 +9,7 @@ public class App {
 
         System.out.print("Enter the number of friends: ");
         int numFriends = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();
 
         System.out.print("Enter your preferences (e.g., outdoor, indoor, food): ");
         String preferences = scanner.nextLine();
