@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * Main application for the San Diego hangout planner.
+ *
+ * Prompts the user for budget, group size, and weather before checking activities.
+ *
+ * @author Matthew Virtue
+ */
 public class HangoutApp {
     public static void main(String[] args) {
         PlannerManager manager = new PlannerManager();

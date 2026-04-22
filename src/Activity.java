@@ -1,3 +1,8 @@
+/**
+ * Represents an activity option with cost, group size, weather, and category details.
+ *
+ * @author Matthew Virtue
+ */
 public class Activity {
     private String name;
     private double cost;
@@ -6,6 +11,16 @@ public class Activity {
     private String weatherType;
     private String category;
 
+    /**
+     * Constructs a new Activity.
+     *
+     * @param name the name of the activity
+     * @param cost the estimated cost of the activity
+     * @param minPeople the minimum number of people required
+     * @param maxPeople the maximum number of people supported
+     * @param weatherType the preferred weather for the activity
+     * @param category the activity category or type
+     */
     public Activity(String name, double cost, int minPeople, int maxPeople, String weatherType, String category) {
         this.name = name;
         this.cost = cost;
@@ -15,6 +30,11 @@ public class Activity {
         this.category = category;
     }
 
+    /**
+     * Returns the activity name.
+     *
+     * @return the activity name
+     */
     public String getName() {
         return name;
     }

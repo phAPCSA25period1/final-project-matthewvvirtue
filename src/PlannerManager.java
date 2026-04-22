@@ -1,8 +1,16 @@
 import java.util.ArrayList;
 
+/**
+ * Manages the list of activities available for the hangout planner.
+ *
+ * @author Matthew Virtue
+ */
 public class PlannerManager {
     private ArrayList<Activity> allActivities;
 
+    /**
+     * Creates a PlannerManager and loads the starter activity list.
+     */
     public PlannerManager() {
         allActivities = new ArrayList<>();
         loadStarterActivities();
@@ -21,5 +29,21 @@ public class PlannerManager {
 
     public ArrayList<Activity> getAllActivities() {
         return allActivities;
+    }
+
+    public ArrayList<Activity> filterActivities(double maxBudget, int people, String weather) {
+    ArrayList<Activity> matches = new ArrayList<>();
+
+    for (Activity a : allActivities) {
+
+        boolean budgetFit = a.getCost() <= maxBudget;
+        boolean sizeFit = (people >= a.getMinPeople() && people <= a.getMaxPeople());
+        boolean weatherFit = a.getWeatherType().equalsIgnoreCase(weather);
+
+        if (budgetFit && sizeFit && weatherFit) {
+            matches.add(a);
+        }
+    }
+    return matches;
     }
 }
