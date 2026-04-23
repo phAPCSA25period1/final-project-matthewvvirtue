@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,8 +15,10 @@ public class HangoutApp {
 
         System.out.println("--- SD Hangout Planner ---");
 
-        System.out.print("Enter your max budget: ");
-        double budget = scanner.nextDouble();
+        while(budget >0 || budget <200){
+            System.out.print("Enter your max budget: ");
+            double budget = scanner.nextDouble();
+        }
 
         System.out.print("Enter the number of friends: ");
         int numFriends = scanner.nextInt();
@@ -27,6 +30,19 @@ public class HangoutApp {
         System.out.println("Checking " + manager.getAllActivities().size() + " total activities...");
 
 
+        ArrayList<Activity> options = manager.filterActivities(budget, numFriends, weather);
+
+        if (options.isEmpty()) {
+            System.out.println("Sorry! No activities match those specific conditions.");
+        }
+        //elif
+
+        else{
+            System.out.println("Found " + options.size() + " matching plans for you:");
+            for (Activity a : options) {
+                System.out.println(a.getName());
+            }
+        }
 
         scanner.close();
     }
