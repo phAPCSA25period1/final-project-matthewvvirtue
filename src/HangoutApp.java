@@ -16,14 +16,15 @@ public class HangoutApp {
 
         System.out.println("--- SD Hangout Planner ---");
 
+        // Budget
         System.out.print("Enter your max budget (Max $200): ");
         double budget = scanner.nextDouble();
-
         while (budget < 0 || budget > 200) {
             System.out.print("Invalid budget. Please enter an amount between $0 and $200: ");
             budget = scanner.nextDouble();
         }
 
+        // Friends
         System.out.print("Enter the number of friends (Max 15): ");
         int numFriends = scanner.nextInt();
 
@@ -33,23 +34,22 @@ public class HangoutApp {
         }
         scanner.nextLine();
 
+        // Weather
         System.out.print("Enter current weather (Sunny/Rainy): ");
         String weather = scanner.nextLine();
-
         while (!weather.equals("Sunny") && !weather.equals("Rainy")) {
             System.out.print("Please enter exactly 'Sunny' or 'Rainy': ");
             weather = scanner.nextLine();
         }
 
+
+
         System.out.println("Checking " + manager.getAllActivities().size() + " total activities...");
-
-
         ArrayList<Activity> options = manager.filterActivities(budget, numFriends, weather);
-
         if (options.isEmpty()) {
             System.out.println("Sorry! No activities match those specific conditions.");
         }
-        
+
         else{
             System.out.println("Found " + options.size() + " matching plans for you:");
             for (Activity a : options) {
