@@ -13,15 +13,11 @@ public class HangoutApp {
         PlannerManager manager = new PlannerManager();
         UserInterface ui = new UserInterface();
 
-        // Testing the new Scanner logic
         double budget = ui.getValidBudget();
         int friends = ui.getValidFriends();
         String weather = ui.getValidWeather();
 
-        // Testing if the manager can filter based on those inputs
         ArrayList<Activity> options = manager.filterActivities(budget, friends, weather);
-
-        // Printing a simple list to verify
-        ui.displaySimpleList(options);
+        ui.displayActivityDashboard(options);
     }
 }

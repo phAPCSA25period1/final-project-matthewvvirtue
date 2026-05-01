@@ -39,7 +39,7 @@ public class UserInterface {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Error: Please enter a whole number.");
-                scanner.nextLine(); 
+                scanner.nextLine();
             }
         }
         return friends;
@@ -68,15 +68,39 @@ public class UserInterface {
         return budget;
     }
 
-    public void displaySimpleList(ArrayList<Activity> matches) {
-        System.out.println("\n--- Results ---");
+    /**
+    * Output for the Planner
+    *
+    * Produces the dashboard
+    *
+    * @deserved Matthew Virtue
+    * @author Gemini
+    */
+
+
+
+    public void displayActivityDashboard(ArrayList<Activity> matches) {
         if (matches.isEmpty()) {
-            System.out.println("No activities found for those settings.");
-        } else {
-            for (Activity a : matches) {
-                System.out.println("- " + a.getName() + " ($" + a.getCost() + ")");
-            }
+            System.out.println("\n[!] No matches found.");
+            return;
         }
+
+        String[][] grid = new String[matches.size()][3];
+        for (int i = 0; i < matches.size(); i++) {
+            Activity a = matches.get(i);
+            grid[i][0] = a.getName();
+            grid[i][1] = String.format("$%.2f", a.getCost());
+            grid[i][2] = (a.getCost() == 0) ? "FREEBIE" : (a.getCost() > 30 ? "PREMIUM" : "SOLID PLAN");
+        }
+
+        System.out.println("\n================= SD HANGOUT DASHBOARD =================");
+        System.out.printf("| %-25s | %-10s | %-15s |\n", "ACTIVITY", "COST", "VIBE");
+        System.out.println("+---------------------------+------------+-----------------+");
+
+        for (int r = 0; r < grid.length; r++) {
+            System.out.printf("| %-25s | %-10s | %-15s |\n", grid[r][0], grid[r][1], grid[r][2]);
+        }
+        System.out.println("========================================================");
     }
 }
 
