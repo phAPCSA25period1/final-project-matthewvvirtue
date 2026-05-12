@@ -2,8 +2,23 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Handles user interaction and input validation for the hangout planner application.
+ *
+ * Provides methods to collect and validate user preferences including budget, group size,
+ * and weather conditions. Also displays the filtered activity results in a formatted dashboard.
+ *
+ * @author Matthew Virtue with Gemini
+ */
 public class UserInterface {
 
+    /**
+     * Prompts the user to enter a valid weather preference.
+     *
+     * Repeatedly asks the user for input until a valid weather option ("Sunny" or "Rainy") is provided.
+     *
+     * @return the user's weather preference as a String ("Sunny" or "Rainy")
+     */
     public String getValidWeather() {
         Scanner scanner = new Scanner(System.in);
         String weather = "";
@@ -22,6 +37,14 @@ public class UserInterface {
         return weather;
     }
 
+    /**
+     * Prompts the user to enter a valid group size.
+     *
+     * Repeatedly asks the user for input until a valid integer between 1 and 15 is provided.
+     * Handles InputMismatchException for non-integer inputs.
+     *
+     * @return the user's group size as an integer between 1 and 15
+     */
     public int getValidFriends() {
         Scanner scanner = new Scanner(System.in);
         int friends = -1;
@@ -45,6 +68,14 @@ public class UserInterface {
         return friends;
     }
 
+    /**
+     * Prompts the user to enter a valid budget.
+     *
+     * Repeatedly asks the user for input until a valid number between 0 and 200 is provided.
+     * Handles InputMismatchException for non-numeric inputs.
+     *
+     * @return the user's budget as a double value between 0 and 200
+     */
     public double getValidBudget() {
         Scanner scanner = new Scanner(System.in);
         double budget = -1;
@@ -69,16 +100,13 @@ public class UserInterface {
     }
 
     /**
-    * Output for the Planner
-    *
-    * Produces the dashboard
-    *
-    * @deserved Matthew Virtue
-    * @author Gemini
-    */
-
-
-
+     * Displays a formatted dashboard of available activities.
+     *
+     * Shows matching activities in a table format with columns for activity name, cost, and vibe level.
+     * If no matching activities are found, displays a "No matches found" message.
+     *
+     * @param matches an ArrayList of Activity objects to display
+     */
     public void displayActivityDashboard(ArrayList<Activity> matches) {
         if (matches.isEmpty()) {
             System.out.println("\n[!] No matches found.");

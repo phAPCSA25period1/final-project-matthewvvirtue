@@ -16,6 +16,13 @@ public class PlannerManager {
         loadStarterActivities();
     }
 
+    /**
+     * Loads the initial set of activities into the planner.
+     *
+     * Populates the activity list with various San Diego attractions including
+     * outdoor activities, indoor attractions, budget-friendly options, and
+     * premium experiences suitable for different weather conditions and group sizes.
+     */
     private void loadStarterActivities() {
         // Original Activities
         allActivities.add(new Activity("Sunset Cliffs Hike", 0.0, 1, 10, "Sunny", "Outdoor"));
@@ -42,14 +49,36 @@ public class PlannerManager {
     }
 
 
+    /**
+     * Adds a new activity to the list of available activities.
+     *
+     * @param a the Activity object to be added
+     */
     public void addActivity(Activity a) {
         allActivities.add(a);
     }
 
+    /**
+     * Returns all available activities in the planner.
+     *
+     * @return an ArrayList containing all Activity objects
+     */
     public ArrayList<Activity> getAllActivities() {
         return allActivities;
     }
 
+    /**
+     * Filters activities based on budget, group size, and weather preferences.
+     *
+     * Returns a list of activities where the cost does not exceed the maximum budget,
+     * the group size falls within the activity's minimum and maximum people limits,
+     * and the weather type matches the user's preference.
+     *
+     * @param maxBudget the maximum amount the user is willing to spend
+     * @param people the number of people in the group
+     * @param weather the preferred weather condition ("Sunny" or "Rainy")
+     * @return an ArrayList of activities that match all the specified criteria
+     */
     public ArrayList<Activity> filterActivities(double maxBudget, int people, String weather) {
     ArrayList<Activity> matches = new ArrayList<>();
 
