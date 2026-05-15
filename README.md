@@ -79,36 +79,7 @@ return results
 
 ## Class Diagram
 
-```
-┌─────────────────────┐
-│    HangoutApp       │
-│  (driver program)   │
-└──────────┬──────────┘
-           │ uses
-      ┌────┴────┐
-      ▼         ▼
-┌──────────────┐  ┌──────────────────┐
-│PlannerManager│  │  UserInterface   │
-├──────────────┤  ├──────────────────┤
-│allActivities │  │Scanner, output   │
-│filterActiv...│  │getValidBudget()  │
-│getAllActiv..│  │getValidFriends() │
-└──────┬───────┘  │getValidWeather() │
-       │ manages  │displayActivity..│
-       ▼          └──────────────────┘
-  ┌─────────┐
-  │ Activity│
-  ├─────────┤
-  │ name    │
-  │ cost    │
-  │minPeople│
-  │maxPeople│
-  │weatherTy│
-  │category │
-  └─────────┘
-```
-
----
+https://drive.google.com/file/d/10eMB2LN4Euq3p_s3NxsQQN-1ohooxp2N/view?usp=sharing
 
 ## Sample Output
 
